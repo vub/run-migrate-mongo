@@ -1,12 +1,13 @@
-# A simple global migrate-mongo runner
+# ⌨ A simple global migrate-mongo runner
 This command help developer able to config once and run migrate-mongo every where
 
-## Install
+## 💻 Install
+```
 npm install -g run-migrate-mongo
 
 touch ~/.mongo_migration_env
-
-Paste config:
+```
+Paste config to env file:
 
 ```
 MONGO_HOST=
@@ -16,5 +17,7 @@ MONGO_PASSWORD=
 MONGO_DB=
 ```
 
-## Usage
-run-migrate-mongo path/to/migarete/folder
+## 🚀 Usage
+```
+run-migrate-mongo path/to/migrate/folder
+```
