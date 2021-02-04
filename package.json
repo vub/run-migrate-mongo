@@ -1,0 +1,30 @@
+{
+  "name": "run-migrate-mongo",
+  "version": "0.0.1",
+  "description": "A global runner for migrate-mongo",
+  "main": "cli/index.js",
+  "bin": {
+    "run-migrate-mongo": "./cli/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CLI",
+    "Migrate",
+    "Mongo"
+  ],
+  "author": {
+    "name": "Bui Minh Vu",
+    "email": "vumt92@gmail.com"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vub/run-migrate-mongo"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "migrate-mongo": "^8.1.4"
+  }
+}
