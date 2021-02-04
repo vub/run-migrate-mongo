@@ -1,6 +1,6 @@
 {
   "name": "run-migrate-mongo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A global runner for migrate-mongo",
   "main": "cli/index.js",
   "bin": {
@@ -24,6 +24,7 @@
     "url": "https://github.com/vub/run-migrate-mongo"
   },
   "dependencies": {
+    "console-table-printer": "^2.7.5",
     "dotenv": "^8.2.0",
     "migrate-mongo": "^8.1.4"
   }

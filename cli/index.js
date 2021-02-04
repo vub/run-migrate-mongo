@@ -5,6 +5,7 @@ const DEFAULT_CONFIG_FILE = '/.mongo_migration_env';
 
 const HOME_DIR = require('os').homedir();
 require('dotenv').config({ path: HOME_DIR + DEFAULT_CONFIG_FILE });
+const { printTable } = require('console-table-printer');
 
 const username = process.env.MONGO_USERNAME;
 const password = process.env.MONGO_PASSWORD;
@@ -29,23 +30,23 @@ const globalConfig = {
   try {
     console.log('Run migrate-mongo up');
 
-    console.log(username, password, host, port, mongoDb);
+    // console.log(username, password, host, port, mongoDb);
     config.set(globalConfig);
 
-    console.log('CONFIGURE');
-    const mongoConnectionSettings = await config.read();
-    console.log(mongoConnectionSettings);
+    // console.log('CONFIGURE');
+    // const mongoConnectionSettings = await config.read();
+    // console.log(mongoConnectionSettings);
 
-    console.log('CONNECT');
+    console.log('RUN MIGRATION');
     const { db, client } = await database.connect();
     const migrated = await up(db, client);
     migrated.forEach(fileName => console.log('Migrated:', fileName));
+    console.log(`Migrated up files: ${migrated.length}`);
+    console.log(migrated)
 
     const migrationStatus = await status(db);
     console.log('STATUS');
-    console.log('fileName', ':', 'appliedAt');
-    migrationStatus.forEach(({ fileName, appliedAt }) => console.log(fileName, ':', appliedAt));
-
+    printTable(migrationStatus);
     await client.close();
     // process.kill(process.pid);
   } catch (err) {
